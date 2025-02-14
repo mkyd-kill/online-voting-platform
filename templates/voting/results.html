@@ -1,0 +1,6 @@
+<h2>Results for {{ election.name }}</h2>
+<ul>
+    {% for candidate, votes in results_data.items %}
+    <li>{{ candidate }}: {{ votes }} votes</li>
+    {% endfor %}
+</ul>
