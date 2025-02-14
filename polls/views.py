@@ -22,7 +22,7 @@ def vote(request, election_id):
 def results(request, election_id):
     election = Election.objects.get(id=election_id)
     candidates = Candidate.objects.filter(election=election)
-    votes = Vote.objects.filter(canditate__in=candidates)
+    votes = Vote.objects.filter(candidate__in=candidates)
 
     results_data = {}
     for candidate in candidates:
