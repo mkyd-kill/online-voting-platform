@@ -1,15 +1,14 @@
 from django.contrib import admin
 from .models import Election, Candidate, Vote
 
-class ElectionAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'start_date']
-    search_fields = ('name',)
+class CandidateInline(admin.TabularInline):
+    model = Candidate
+    extra = 1
     readonly_fields = ['id']
 
-class CandidateAdmin(admin.ModelAdmin):
-    list_display = ['name']
-    search_fields = ('name',)
+class ElectionAdmin(admin.ModelAdmin):
+    inlines = [CandidateInline]
     readonly_fields = ['id']
 
 admin.site.register(Election, ElectionAdmin)
-admin.site.register(Candidate, CandidateAdmin)
+admin.site.register(Vote)
