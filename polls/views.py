@@ -8,6 +8,10 @@ def vote(request, election_id):
     election = Election.objects.get(id=election_id)
     candidates = Candidate.objects.filter(election=election)
 
+    # check if user has already voted
+    if Vote.objects.filter(user=request.user, candidate__election=election).exists():
+        return render(request, 'voting/already_voted.html')
+
     if request.method == 'POST':
         form = VoteForm(request.POST)
         if form.is_valid():
