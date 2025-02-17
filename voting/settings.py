@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -147,3 +148,30 @@ SESSION_SAVE_EVERY_REQUEST = True # Refresh session expiry at each request
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# Customizing the admin panel
+JAZZMIN_SETTINGS = {
+    "site_title": "Voting Management Platform",
+    "site_header": "Voting Management",
+    'site_brand': 'Voting Management Platform',
+    "welcome_sign": "Welcome to Voting Management Panel",
+    'copyright': 'Online Management Platform',
+    "show_ui_builder": True,
+    "custom_css": "",
+    
+    # adding icons to the dashboard
+    "icons": {},
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+    "dark_mode_theme": "solar",
+    "brand_colour": "navbar-dark",
+    "no_navbar_border": False,
+    "body_small_text": True,
+    "navbar_fixed": True,
+    "sidebar_fixed": True,
+    "footer_fixed": True,
+    "accent": "accent-navy",
+    "sidebar": "sidebar-dark-primary",
+}
