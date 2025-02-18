@@ -5,23 +5,26 @@ from .forms import VoteForm
 
 @login_required
 def vote(request, election_id):
-    election = Election.objects.get(id=election_id)
-    candidates = Candidate.objects.filter(election=election)
+    election = Election.objects.filter(id=election_id).first()
+
+    if not election:
+        return render(request, 'voting/error.html', {'message': 'Election Not Found'})
 
     # check if user has already voted
     if Vote.objects.filter(user=request.user, candidate__election=election).exists():
         return render(request, 'voting/already_voted.html')
 
     if request.method == 'POST':
-        form = VoteForm(request.POST)
+        form = VoteForm(request.POST, election=election)
         if form.is_valid():
             vote = form.save(commit=False)
             vote.user = request.user
             vote.save()
             return redirect('results', election_id=election.id)
     else:
-        form = VoteForm()
-    return render(request, 'voting/vote.html', {'election': election, 'candidates': candidates, 'form': form})
+        form = VoteForm(election=election)
+
+    return render(request, 'voting/vote.html', {'election': election, 'form': form})
 
 def results(request, election_id):
     election = Election.objects.get(id=election_id)
