@@ -1,13 +1,53 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voting Platform | {% block title %} {% endblock %}</title>
-</head>
-<body>
-    <div class="container">
-        {% block content %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <div class="side-navbar">
+        <aside class="sidebar">
+          <div class="sidebarMenu">
+            <h3 class="sidebarTitle">Overview</h3>
+            <ul class="sidebarList">
+              <a href="{% url 'elections' %}" class="sidebarLink">
+                <li class="sidebarListItem active">
+                  <span class="sidebarIcon"></span>
+                  Elections
+                </li>
+              </a>
+              <a href="" class="sidebarLink">
+                <li class="sidebarListItem">
+                  <span class="sidebarIcon"></span>
+                  Results
+                </li>
+              </a>
+              <a href="{% url 'profile' %}" class="sidebarLink">
+                <li class="sidebarListItem">
+                  <span class="sidebarIcon"></span>
+                  Profile
+                </li>
+              </a>
+              <a class="sidebarLink signout-link" href="{% url 'logout' %}">
+                <li class="sidebarListItem">
+                  <span class="sidebarIcon">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                  </span>
+                  Sign-out
+                </li>
+              </a>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <div class="container">{% block content %} {% endblock %}</div>
     </div>
-</body>
+
+    <script src="{% static 'app.js' %}"></script>
+  </body>
 </html>
