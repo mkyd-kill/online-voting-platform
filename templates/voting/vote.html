@@ -1,3 +1,8 @@
+{% extends '_base.html' %}
+
+{% block title %} Vote {% endblock %}
+
+{% block content %}
 <h2>Vote in {{ election.name }}</h2>
 
 <form method="post">
@@ -5,3 +10,4 @@
     {{ form.as_p }}
     <button type="submit">Submit Vote</button>
 </form>
+{% endblock %}
