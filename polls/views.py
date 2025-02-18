@@ -4,6 +4,10 @@ from .models import Election, Candidate, Vote
 from .forms import VoteForm
 
 @login_required
+def elections(request):
+    return render(request, "voting/elections.html")
+
+@login_required
 def vote(request, election_id):
     election = Election.objects.filter(id=election_id).first()
 
