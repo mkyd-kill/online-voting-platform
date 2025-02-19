@@ -97,7 +97,7 @@
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .election-card {
@@ -168,4 +168,9 @@
 
 .inactive {
   background-color: #dc3545;
+}
+
+.no-election {
+  justify-content: center;
+  align-items: center;
 }

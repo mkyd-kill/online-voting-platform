@@ -3,7 +3,7 @@
 {% block title %} Elections {% endblock %}
 
 {% block content %}
-<h2>Elections</h2>
+<h2 class="title">Elections</h2>
 
 {% if elections %}
 <div class="election-wrapper">
@@ -13,7 +13,7 @@
             <img src="" alt="election">
         </div>
         <div class="election-details">
-            <h4>{{ election.name }}</h4>
+            <h4>{{ election.name.title }}</h4>
             <h5>Start Date: <span>{{ election.start_date }}</span></h5>
             <h5>End Date: <span>{{ election.end_date }}</span></h5>
             <p>Status: <span class="status inactive">Not Voted</span></p>
@@ -21,6 +21,11 @@
         </div>
     </div>
     {% endfor %}
+</div>
+{% else %}
+<div class="no-election">
+    <h3>There are no Elections currently</h3>
+    <p>If you are the site admin, login to the admin panel to add elections</p>
 </div>
 {% endif %}
 {% endblock %}
