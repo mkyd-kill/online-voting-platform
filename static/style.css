@@ -46,7 +46,7 @@
 .sidebarList {
   list-style: none;
   padding: 0 3px;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
 }
 
 .sidebarLink {
@@ -54,7 +54,7 @@
 }
 
 .sidebarListItem {
-  padding: 8px 5px;
+  padding: 9px 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -88,6 +88,84 @@
   position: absolute;
   left: var(--content-width);
   top: 0px;
-  padding: 5px 0;
-  margin: 5px 0;
+  padding: 3px 20px;
+  margin: 3px 0;
+}
+
+/* elections page */
+.election-wrapper {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.election-card {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.election-img {
+  position: relative;
+  isolation: isolate;
+}
+
+.election-details {
+  padding: 1rem;
+}
+
+.election-details h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #0c0a09;
+}
+
+.election-details p {
+  margin-bottom: 0.7rem;
+  color: #78716c;
+}
+
+.election-details h5 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #78716c;
+}
+
+.election-details h5 span {
+  font-size: 1.1rem;
+  color: #0c0a09;
+}
+
+.btn {
+  padding: 0.55rem 1rem;
+  background: gray;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ebbaa9;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.active {
+  background-color: #28a745;
+}
+
+.inactive {
+  background-color: #dc3545;
 }
