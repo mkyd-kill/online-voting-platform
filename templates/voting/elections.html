@@ -5,18 +5,22 @@
 {% block content %}
 <h2>Elections</h2>
 
+{% if elections %}
 <div class="election-wrapper">
+    {% for election in elections %}
     <div class="election-card">
         <div class="election-img">
             <img src="" alt="election">
         </div>
         <div class="election-details">
-            <h4>Best Programming Language</h4>
-            <h5>Start Date: <span></span></h5>
-            <h5>End Date: <span></span></h5>
-            <p>Status: <span class="status inactive">Already Voted</span></p>
+            <h4>{{ election.name }}</h4>
+            <h5>Start Date: <span>{{ election.start_date }}</span></h5>
+            <h5>End Date: <span>{{ election.end_date }}</span></h5>
+            <p>Status: <span class="status inactive">Not Voted</span></p>
             <button class="btn">View Results</button>
         </div>
     </div>
+    {% endfor %}
 </div>
+{% endif %}
 {% endblock %}

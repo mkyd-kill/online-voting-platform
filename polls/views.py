@@ -5,7 +5,8 @@ from .forms import VoteForm
 
 @login_required
 def elections(request):
-    return render(request, "voting/elections.html")
+    elections = Election.objects.all()
+    return render(request, "voting/elections.html", {'elections': elections})
 
 @login_required
 def vote(request, election_id):
