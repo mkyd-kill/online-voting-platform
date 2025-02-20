@@ -10,7 +10,7 @@
     {% for election in elections %}
     <div class="election-card">
         <div class="election-img">
-            <img src="" alt="election">
+            <img src="{{ election.elect_img.url }}" alt="election">
         </div>
         <div class="election-details">
             <h4>{{ election.name.title }}</h4>
