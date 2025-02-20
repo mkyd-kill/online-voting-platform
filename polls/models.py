@@ -6,6 +6,7 @@ import hashlib
 class Election(models.Model):
     id = ShortUUIDField(unique=True, length=5, max_length=5, alphabet="0123456789", primary_key=True)
     name = models.CharField(max_length=255)
+    election_img = models.ImageField(upload_to='elections', default='election.jpg', blank=True, null=True)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
 
