@@ -1,5 +1,6 @@
 from django.db import models
 from shortuuid.django_fields import ShortUUIDField
+from django.utils.html import mark_safe
 from users.models import CustomUser
 import hashlib
 
@@ -9,6 +10,11 @@ class Election(models.Model):
     election_img = models.ImageField(upload_to='elections', default='election.jpg', blank=True, null=True)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
+
+    def image_url(self):
+        return mark_safe('<img src="%s" width=50 heigh=50 />' % (self.election_img.url))
+    
+    image_url.short_description = "Image"
 
     def __repr__(self):
         return self.name.title()
