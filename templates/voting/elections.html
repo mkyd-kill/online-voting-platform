@@ -16,8 +16,10 @@
             <h4>{{ election.name.title }}</h4>
             <h5>Start Date: <span>{{ election.start_date }}</span></h5>
             <h5>End Date: <span>{{ election.end_date }}</span></h5>
-            <p>Status: <span class="status inactive">Not Voted</span></p>
-            <button class="btn">View Results</button>
+            <div class="link-btn">
+                <button class="btn" value="{{ election.id }}">Results</button>
+                <button class="btn">Vote</button>
+            </div>
         </div>
     </div>
     {% endfor %}

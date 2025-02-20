@@ -156,20 +156,6 @@
   background: #ebbaa9;
 }
 
-.status {
-  padding: 4px 8px;
-  border-radius: 5px;
-  color: #fff;
-}
-
-.active {
-  background-color: #28a745;
-}
-
-.inactive {
-  background-color: #dc3545;
-}
-
 .no-election {
   justify-content: center;
   align-items: center;
