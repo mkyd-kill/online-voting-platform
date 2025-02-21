@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserForm
+from .forms import UserForm, UpdateProfileForm
+from .models import CustomUser
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    user_id = request.user.id
+    user = CustomUser.objects.filter(id=user_id)
+    if request.method == 'POST':
+        form = UpdateProfileForm(user=user)
+    form = UpdateProfileForm()
+    return render(request, 'users/profile.html', {'form': form})
 
 def register(request):
     if request.method == 'POST':
