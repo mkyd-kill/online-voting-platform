@@ -5,11 +5,10 @@ from .models import CustomUser
 
 @login_required
 def profile(request):
-    user_id = request.user.id
-    user = CustomUser.objects.filter(id=user_id)
+    user = CustomUser.objects.filter(id=request.user.id).first()
     if request.method == 'POST':
-        form = UpdateProfileForm(user=user)
-    form = UpdateProfileForm()
+        pass
+    form = UpdateProfileForm(instance=user)
     return render(request, 'users/profile.html', {'form': form})
 
 def register(request):
