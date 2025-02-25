@@ -8,7 +8,7 @@ User = get_user_model()
 class UserForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ['email', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2']
 
 class UpdateProfileForm(forms.ModelForm):
     class Meta:
