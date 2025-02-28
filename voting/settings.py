@@ -154,6 +154,8 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+LOGOUT_REDIRECT_URL = 'login'  # Redirects to login after logout
+
 # Customizing the admin panel
 JAZZMIN_SETTINGS = {
     "site_title": "Voting Management Platform",
